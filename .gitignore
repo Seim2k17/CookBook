@@ -286,3 +286,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/CookBookLessons/Binaries/Win64
+/CookBookLessons/Config
+/CookBookLessons/Content
+/CookBookLessons/Intermediate
+/CookBookLessons/Saved
