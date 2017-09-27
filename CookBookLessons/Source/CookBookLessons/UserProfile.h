@@ -11,7 +11,7 @@
 /**
  * UCLASS macro option sets this C++ calss to be Blueprintable within the UE4 Editor
  */
-UCLASS(Blueprintable, BlueprintType)
+UCLASS(Blueprintable)
 class COOKBOOKLESSONS_API UUserProfile : public UObject
 {
 	GENERATED_BODY()
@@ -28,7 +28,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 		FString Name;
 	//Displays any UClasses deriving from AActor in a dropwdown menu in Blueprints
-	TSubclassOf<UObject> UClassOfPlayer;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = UClassNames )
+	TSubclassOf<UUserProfile> UPBlueprintClassName;
 	
 	
 };

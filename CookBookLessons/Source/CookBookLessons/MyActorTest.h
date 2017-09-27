@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "ColoredTexture2.h"
+#include "FirstCppEnum.h"
 #include "MyActorTest.generated.h"
 
-UCLASS(Blueprintable, BlueprintType)
+UCLASS()
 class COOKBOOKLESSONS_API AMyActorTest : public AActor
 {
 	GENERATED_BODY()
@@ -23,7 +25,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//UFUNCTION(BlueprintReadOnly)
+	UFUNCTION(BlueprintCallable, Category = PrintActor)
 	void PrintName();
 
 	UPROPERTY(Editanywhere, BlueprintReadWrite, Category = Stats)
@@ -32,12 +34,19 @@ public:
 		float HP = 10.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
 		FString Name = "Dude7";
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Unit)
 	//Displays any UClasses deriving from AActor in a dropwdown menu in Blueprints; no more in 4.16 ?
-	TSubclassOf<UObject> UClassOfPlayer;
+	TSubclassOf<AActor> UClassOfPlayer;
 
 	//Displays string names of UCLASSes that derive from the GameMode C++ BaseClass; 
 	UPROPERTY(EditAnywhere, meta = (MetaClass = "GameMode") , Category = Unit)
 		FStringClassReference UClassGameMode;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HUD)
+		FColoredTexture2 TextureTest;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Stats)
+		TEnumAsByte<Status> MovingState;
+
 
 };
